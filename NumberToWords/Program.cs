@@ -96,22 +96,22 @@ int[] CreateArray(int absnumber)
 #region "Display Logic"
 string TensLogic(int tens, int ones)
 {
-    if (tens > 1) return $"{WriteTwentyToNinty(tens)} {WriteZeroToNine(ones)}";
+    if (tens > 1) return $"{WriteTwentyToNinty(tens)}{WriteZeroToNine(ones)}";
     else if (tens + ones > 0) return WriteTenToNinteen(ones);
     else return string.Empty;
 }
 
 string HundredsLogic(int hundreds)
 {
-    if (hundreds > 0) return $"{WriteZeroToNine(hundreds)} {WriteHundred}";
+    if (hundreds > 0) return $"{WriteZeroToNine(hundreds)}{WriteHundred()}";
     else return string.Empty;
 }
 
 string ThousandsLogic(int hundreds, int tens, int ones)
 {
-    if (hundreds > 0) return $"{HundredsLogic(hundreds)} {TensLogic(tens, ones)} {WriteThousand()}";
-    else if (tens > 0) return $"{TensLogic(tens, ones)} {WriteThousand()}";
-    else if (ones > 0) return $"{WriteZeroToNine(ones)} {WriteThousand()}";
+    if (hundreds > 0) return $"{HundredsLogic(hundreds)}{TensLogic(tens, ones)}{WriteThousand()}";
+    else if (tens > 0) return $"{TensLogic(tens, ones)}{WriteThousand()}";
+    else if (ones > 0) return $"{WriteZeroToNine(ones)}{WriteThousand()}";
     else return string.Empty; 
 }
 #endregion
